@@ -1,4 +1,5 @@
 import express, { Express, Request, Response } from 'express';
+import cors from 'cors';
 import dotenv from 'dotenv';
 import router from './src/routes/activity.route';
 
@@ -22,6 +23,7 @@ if(db) {
   console.log('No database found');
 }
 
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use('/activities', router);
 
 app.listen(port, () => {

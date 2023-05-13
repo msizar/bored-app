@@ -9,4 +9,5 @@ export interface IActivity {
   participants: number;
   price: number;
   key: string;
+  _id: string;
 }
