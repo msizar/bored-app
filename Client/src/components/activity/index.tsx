@@ -3,7 +3,6 @@ import { FC } from 'react';
 
 const ActivityCard: FC<IActivity> = ({
   activity,
-  key,
   participants,
   price,
   type,
@@ -12,9 +11,6 @@ const ActivityCard: FC<IActivity> = ({
     <div className="bg-gray-800 text-white rounded-lg shadow-lg p-6">
       <h2 className="text-2xl font-bold mb-4">{activity}</h2>
       <div className="space-y-2">
-        <p>
-          <strong className="text-gray-400">Key:</strong> {key}
-        </p>
         <p>
           <strong className="text-gray-400">Participants:</strong>{' '}
           {participants}
