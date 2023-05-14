@@ -61,7 +61,44 @@ async function createActivity(req: Request, res: Response) {
   }
 }
 
+async function createMultipleActivities(req: Request, res: Response) {
+  try {
+
+    const count = 20; // Number of times to create activities (default: 1)
+    let types = [];
+
+    let activities = await Activity.find({})
+
+    if(activities.length < 20) {
+      for (let i = 0; i < count; i++) {
+        const activity = await getRandomActivity();
+  
+        const newActivity = new Activity({
+          activity: activity.activity,
+          type: activity.type,
+          participants: activity.participants,
+          price: activity.price,
+          key: activity.key,
+        });
+  
+        types.push(newActivity.type)      
+        await newActivity.save();
+      }
+    } else {
+      types = activities.map(activity => activity.type)
+    }
+
+   
+
+    res.json(types);
+  } catch (error) {
+    console.log('Error creating activities in MongoDB:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
+
 export default {
+  createMultipleActivities,
   getAllActivities,
   getActivityById,
   createActivity,
