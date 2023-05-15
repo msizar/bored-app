@@ -4,7 +4,10 @@ import { getRandomActivity } from '../utils/api';
 
 async function getAllActivities(req: Request, res: Response) {
   try {
-    const activities = await Activity.find({});
+    const filterType = req.query.type as string;
+    const query = filterType ? { type: filterType } : {};
+    const activities = await Activity.find(query);
+    
     res.json(activities);
   } catch (error) {
     console.log('Error fetching activities from MongoDB:', error);
