@@ -43,3 +43,5 @@ To set up the client, follow these steps:
 2. Start the development server:
    ```shell
    npm run dev
+
+The client will run on http://localhost:3000 by default.
