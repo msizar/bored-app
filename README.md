@@ -12,7 +12,6 @@ The server folder houses the backend code written in Node.js and uses MongoDB fo
 - Ensure you are on Node version 16.*
 
 To set up the server, follow these steps:
-
 1. Install dependencies:
    ```shell
    cd server
@@ -25,6 +24,12 @@ To set up the server, follow these steps:
 
 The server will run on http://localhost:8000 by default.
 
+## Note:
+- Create .env file on the root folder of the server and add the port on which you are going to test on and the database url
+  ```shell
+   PORT=8000
+   DATABASE_URL=mongodb+srv://<username>:<password>@cluster0.tvzfduo.mongodb.net/?retryWrites=true&w=majority 
+```
 
 # Client
 The client folder contains the frontend code built with Next.js and styled with Tailwind CSS. It provides a user interface to interact with the server's APIs. The following technologies and dependencies are used:
